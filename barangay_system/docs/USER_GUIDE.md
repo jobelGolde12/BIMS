@@ -1,8 +1,14 @@
 # User Guide
 
-## Login
-- Default Username: `admin`
-- Default Password: `admin123`
+## Roles and Login
+- **Administrator**
+    - Username: `admin`
+    - Password: `admin123`
+    - Full access to all modules and settings.
+- **Resident**
+    - Username: `resident`
+    - Password: `res123`
+    - Limited access: Can only view the resident list and logout.
 
 ## Dashboard
 - Displays summary statistics (Total Residents, etc.)

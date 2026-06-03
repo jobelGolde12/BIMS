@@ -1,0 +1,12 @@
+Resident ID,First Name,Middle Name,Last Name,Gender,Birthdate,Age,Civil Status,Occupation,Address,Contact Number,Voter Status
+RES-001,Juan,Protasio,Dela Cruz,Male,1985-05-15,39,Married,Teacher,123 Rizal St. Brgy. Sample,09171234567,Voter
+RES-002,Maria,Clara,Santos,Female,1990-08-20,33,Single,Nurse,456 Mabini St. Brgy. Sample,09187654321,Voter
+RES-003,Jose,P.,Rizal,Male,1861-06-19,162,Single,Doctor,"Calamba, Laguna (Honorary)",09190000000,Voter
+RES-004,Liza,Soberano,Esperanza,Female,1998-01-04,26,Single,Actress,789 Quezon Ave. Brgy. Sample,09201112222,Voter
+RES-005,Manny,Dapidran,Pacquiao,Male,1978-12-17,45,Married,Professional Boxer,General Santos City,09213334444,Voter
+RES-006,Catriona,Magnayon,Gray,Female,1994-01-06,30,Single,Model,"Albay, Bicol",09225556666,Voter
+RES-007,Antonio,Luna,Novicio,Male,1866-10-29,157,Single,General,Ilocos Norte,09237778888,Voter
+RES-008,Melchora,Aquino,de Ramos,Female,1812-01-06,212,Widowed,Tandang Sora,"Banlat, Quezon City",09249990000,Voter
+RES-009,Efren,Penaflorida,Jr.,Male,1981-03-05,43,Single,Social Worker,Cavite City,09251113333,Voter
+RES-010,Lea,Salonga,Chien,Female,1971-02-22,53,Married,Singer,Manila,09262224444,Voter
+RES-011,Boggart,Vernez,Golpo,Male,2004-05-07,21,Single,none,"Sampaloc, Metro Manila",09343238421,Voter

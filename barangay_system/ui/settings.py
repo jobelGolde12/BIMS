@@ -15,13 +15,6 @@ class SettingsModule:
         container = ttk.Frame(self.parent, padding=20)
         container.pack(fill=tk.BOTH, expand=True)
         
-        # Backup section
-        backup_frame = ttk.LabelFrame(container, text="Database Backup & Restore", padding=20)
-        backup_frame.pack(fill=tk.X, pady=10)
-        
-        ttk.Button(backup_frame, text="Create Database Backup", command=self.create_backup).pack(fill=tk.X, pady=5)
-        ttk.Button(backup_frame, text="Restore from Backup", command=self.restore_backup).pack(fill=tk.X, pady=5)
-        
         # Info section
         info_frame = ttk.LabelFrame(container, text="About BIMS", padding=20)
         info_frame.pack(fill=tk.X, pady=20)

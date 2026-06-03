@@ -5,13 +5,14 @@ from PIL import Image, ImageTk
 import io
 
 class ResidentsModule:
-    def __init__(self, parent):
+    def __init__(self, parent, user_role='Administrator'):
         self.parent = parent
+        self.user_role = user_role
         self.setup_ui()
         self.load_data()
 
     def setup_ui(self):
-        ttk.Label(self.parent, text="Resident Management", style="Subheader.TLabel").pack(anchor=tk.W, pady=(0, 20))
+        ttk.Label(self.parent, text="Resident List", style="Subheader.TLabel").pack(anchor=tk.W, pady=(0, 20))
         
         # Search and Action Bar
         action_bar = ttk.Frame(self.parent)
@@ -22,7 +23,9 @@ class ResidentsModule:
         self.search_var.trace_add("write", lambda *args: self.handle_search())
         ttk.Entry(action_bar, textvariable=self.search_var, width=30).pack(side=tk.LEFT, padx=10)
         
-        ttk.Button(action_bar, text="Add New Resident", style="Accent.TButton", command=self.show_add_dialog).pack(side=tk.RIGHT)
+        if self.user_role == 'Administrator':
+            ttk.Button(action_bar, text="Add New Resident", style="Accent.TButton", command=self.show_add_dialog).pack(side=tk.RIGHT)
+        
         ttk.Button(action_bar, text="Refresh", command=self.load_data).pack(side=tk.RIGHT, padx=10)
         
         # Treeview
@@ -35,8 +38,9 @@ class ResidentsModule:
             
         self.tree.pack(fill=tk.BOTH, expand=True)
         
-        # Context Menu
-        self.tree.bind("<Double-1>", lambda e: self.show_edit_dialog())
+        # Context Menu - Only for Admin
+        if self.user_role == 'Administrator':
+            self.tree.bind("<Double-1>", lambda e: self.show_edit_dialog())
 
     def load_data(self):
         for item in self.tree.get_children():

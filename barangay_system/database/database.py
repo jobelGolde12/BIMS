@@ -28,6 +28,14 @@ def init_db():
             ('admin', 'admin123', 'Administrator')
         )
     
+    # Check if a sample resident user exists
+    cursor.execute("SELECT * FROM users WHERE username = 'resident'")
+    if not cursor.fetchone():
+        cursor.execute(
+            "INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
+            ('resident', 'res123', 'Resident')
+        )
+    
     conn.commit()
     conn.close()
 

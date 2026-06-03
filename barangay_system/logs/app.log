@@ -1,2 +1,11 @@
 2026-06-03 13:03:08,656 - BIMS - INFO - Application started and database initialized.
 2026-06-03 13:04:25,013 - BIMS - INFO - User logged in: admin
+2026-06-03 13:22:17,162 - BIMS.ResidentService - INFO - Resident added: RES-011
+2026-06-03 13:23:17,149 - BIMS.ReportService - INFO - Residents exported to CSV
+2026-06-03 13:23:23,449 - BIMS.ReportService - INFO - Residents exported to CSV
+2026-06-03 13:25:37,639 - BIMS - INFO - Application started and database initialized.
+2026-06-03 13:25:45,444 - BIMS - INFO - User logged in: admin
+2026-06-03 13:25:52,731 - BIMS - INFO - Application started and database initialized.
+2026-06-03 13:26:02,297 - BIMS - INFO - User logged in: admin
+2026-06-03 13:29:23,579 - BIMS - INFO - Application started and database initialized.
+2026-06-03 13:29:31,296 - BIMS - INFO - User logged in: resident
