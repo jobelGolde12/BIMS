@@ -1,0 +1,11 @@
+Actors: Admin, Barangay Official
+
+Use Cases:
+1. Login to system
+2. Manage Residents (Add, Edit, Delete, Search)
+3. Manage Households (Add, Edit, Delete)
+4. Manage Officials (Update terms)
+5. Issue Certificates (Clearance, Indigency, Residency)
+6. Generate Reports (CSV)
+7. Backup/Restore Database
+8. View Dashboard Statistics

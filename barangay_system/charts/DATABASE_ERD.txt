@@ -1,0 +1,31 @@
+[Users]
+- id (PK)
+- username
+- password
+- role
+
+[Residents]
+- resident_id (PK/Unique)
+- first_name
+- ...
+- created_at
+
+[Households]
+- household_id (PK)
+- head_name
+- address
+- members
+
+[Officials]
+- id (PK)
+- name
+- position
+- term_start
+- term_end
+
+[Certificates]
+- id (PK)
+- certificate_number (Unique)
+- resident_id (FK -> Residents.resident_id)
+- certificate_type
+- issued_date

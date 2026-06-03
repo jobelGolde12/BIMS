@@ -1,0 +1,17 @@
+START
+ |
+Login (User validation)
+ |
+Dashboard (Overview & Navigation)
+ |
++-------------------------------------------------------+
+|                                                       |
+Residents <--> Households <--> Officials <--> Certificates
+|                                                       |
++-------------------------------------------------------+
+ |
+Reports / Settings
+ |
+Logout
+ |
+END
