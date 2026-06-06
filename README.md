@@ -1,11 +1,11 @@
 # Barangay Information and Management System (BIMS)
 
-## 📝 Project Overview
+## Project Overview
 BIMS is a comprehensive desktop application designed to streamline the management of resident information, household data, barangay officials, and the issuance of various certificates. Built with Python and Tkinter, it provides a reliable and portable solution for local government units.
 
 ---
 
-## 🚀 Features
+## Features
 - **User Authentication**: Role-based access (Administrator and Resident) with secure login.
 - **Resident Management**: Full CRUD (Create, Read, Update, Delete) operations, search functionality, and photo upload support.
 - **Household Management**: Track households, their members, and addresses.
@@ -17,7 +17,7 @@ BIMS is a comprehensive desktop application designed to streamline the managemen
 
 ---
 
-## 📋 Requirements
+## Requirements
 ### System Requirements
 - **Operating System**: Windows, Linux, or macOS.
 - **Python**: version 3.12 or higher.
@@ -31,7 +31,7 @@ The following libraries are required:
 
 ---
 
-## 🛠️ Architecture
+## Architecture
 BIMS follows a modular **N-Tier Architecture** to ensure maintainability and scalability:
 
 1.  **UI Layer (Tkinter/ttk)**: Handles all user interactions and data presentation.
@@ -41,9 +41,9 @@ BIMS follows a modular **N-Tier Architecture** to ensure maintainability and sca
 
 ---
 
-## ⚙️ Installation Instructions
+## Installation Instructions
 
-### 🐧 Linux (Ubuntu/Debian)
+### Linux (Ubuntu/Debian)
 1.  **Update System & Install Python**:
     ```bash
     sudo apt update
@@ -63,7 +63,7 @@ BIMS follows a modular **N-Tier Architecture** to ensure maintainability and sca
     python3 -m barangay_system.main
     ```
 
-### 🪟 Windows
+### Windows
 1.  **Install Python**: Download and install Python 3.12+ from [python.org](https://www.python.org/). Ensure **"Add Python to PATH"** is checked.
 2.  **Create a Virtual Environment**:
     ```powershell
@@ -81,7 +81,7 @@ BIMS follows a modular **N-Tier Architecture** to ensure maintainability and sca
 
 ---
 
-## 📖 User Guide
+## User Guide
 
 ### Initial Login
 - **Administrator**:
@@ -112,7 +112,7 @@ The Dashboard provides a quick overview of system statistics:
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 - `barangay_system/`: Core application package.
   - `database/`: SQLite database and schema definitions.
   - `ui/`: GUI modules and styling.
@@ -122,3 +122,58 @@ The Dashboard provides a quick overview of system statistics:
   - `docs/`: Technical documentation and user guides.
   - `charts/`: System architecture diagrams (ASCII).
   - `logs/`: Application execution logs.
+
+PROJECT STRUCTURE
+
+barangay_system/
+
+│
+├── main.py
+│
+├── database/
+│   ├── database.py
+│   ├── schema.py
+│   └── barangay.db
+│
+├── ui/
+│   ├── login_window.py
+│   ├── dashboard.py
+│   ├── residents.py
+│   ├── households.py
+│   ├── certificates.py
+│   ├── officials.py
+│   ├── reports.py
+│   └── settings.py
+│
+├── services/
+│   ├── resident_service.py
+│   ├── household_service.py
+│   ├── certificate_service.py
+│   └── report_service.py
+│
+├── assets/
+│   ├── logo.png
+│   └── icons/
+│
+├── exports/
+│   ├── pdf/
+│   ├── csv/
+│   └── backups/
+│
+├── docs/
+│   ├── README.md
+│   ├── USER_GUIDE.md
+│   ├── INSTALLATION.md
+│   ├── DATABASE_DOCUMENTATION.md
+│   └── PROJECT_DOCUMENTATION.md
+│
+├── charts/
+│   ├── SYSTEM_FLOWCHART.txt
+│   ├── DATABASE_ERD.txt
+│   ├── USE_CASE_DIAGRAM.txt
+│   └── CLASS_DIAGRAM.txt
+│
+├── logs/
+│   └── app.log
+│
+└── requirements.txt

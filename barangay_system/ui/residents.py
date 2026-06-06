@@ -25,8 +25,9 @@ class ResidentsModule:
         
         if self.user_role == 'Administrator':
             ttk.Button(action_bar, text="Add New Resident", style="Accent.TButton", command=self.show_add_dialog).pack(side=tk.RIGHT)
+            ttk.Button(action_bar, text="Delete Resident", command=self.handle_delete).pack(side=tk.RIGHT, padx=5)
         
-        ttk.Button(action_bar, text="Refresh", command=self.load_data).pack(side=tk.RIGHT, padx=10)
+        ttk.Button(action_bar, text="Refresh", command=self.load_data).pack(side=tk.RIGHT, padx=5)
         
         # Treeview
         columns = ("ID", "Name", "Gender", "Birthdate", "Civil Status", "Voter Status")
@@ -41,6 +42,32 @@ class ResidentsModule:
         # Context Menu - Only for Admin
         if self.user_role == 'Administrator':
             self.tree.bind("<Double-1>", lambda e: self.show_edit_dialog())
+            self.menu = tk.Menu(self.parent, tearoff=0)
+            self.menu.add_command(label="Edit", command=self.show_edit_dialog)
+            self.menu.add_command(label="Delete", command=self.handle_delete)
+            self.tree.bind("<Button-3>", self.show_context_menu)
+
+    def show_context_menu(self, event):
+        item = self.tree.identify_row(event.y)
+        if item:
+            self.tree.selection_set(item)
+            self.menu.post(event.x_root, event.y_root)
+
+    def handle_delete(self):
+        selected = self.tree.selection()
+        if not selected:
+            messagebox.showwarning("Warning", "Please select a resident to delete.")
+            return
+            
+        resident_id = self.tree.item(selected[0])['values'][0]
+        name = self.tree.item(selected[0])['values'][1]
+        
+        if messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete resident {name} ({resident_id})?"):
+            if ResidentService.delete_resident(resident_id):
+                messagebox.showinfo("Success", "Resident deleted successfully.")
+                self.load_data()
+            else:
+                messagebox.showerror("Error", "Could not delete resident.")
 
     def load_data(self):
         for item in self.tree.get_children():

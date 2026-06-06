@@ -15,6 +15,7 @@ class OfficialsModule:
         action_bar.pack(fill=tk.X, pady=(0, 10))
         
         ttk.Button(action_bar, text="Add Official", style="Accent.TButton", command=self.show_add_dialog).pack(side=tk.RIGHT)
+        ttk.Button(action_bar, text="Delete Official", command=self.handle_delete).pack(side=tk.RIGHT, padx=5)
         
         columns = ("ID", "Name", "Position", "Term Start", "Term End", "Contact")
         self.tree = ttk.Treeview(self.parent, columns=columns, show="headings")
@@ -22,6 +23,34 @@ class OfficialsModule:
             self.tree.heading(col, text=col)
         self.tree.pack(fill=tk.BOTH, expand=True)
         self.tree.bind("<Double-1>", lambda e: self.show_edit_dialog())
+        
+        # Context Menu
+        self.menu = tk.Menu(self.parent, tearoff=0)
+        self.menu.add_command(label="Edit", command=self.show_edit_dialog)
+        self.menu.add_command(label="Delete", command=self.handle_delete)
+        self.tree.bind("<Button-3>", self.show_context_menu)
+
+    def show_context_menu(self, event):
+        item = self.tree.identify_row(event.y)
+        if item:
+            self.tree.selection_set(item)
+            self.menu.post(event.x_root, event.y_root)
+
+    def handle_delete(self):
+        selected = self.tree.selection()
+        if not selected:
+            messagebox.showwarning("Warning", "Please select an official to delete.")
+            return
+            
+        o_id = self.tree.item(selected[0])['values'][0]
+        name = self.tree.item(selected[0])['values'][1]
+        
+        if messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete official {name}?"):
+            if OfficialService.delete_official(o_id):
+                messagebox.showinfo("Success", "Official deleted successfully.")
+                self.load_data()
+            else:
+                messagebox.showerror("Error", "Could not delete official.")
 
     def load_data(self):
         for item in self.tree.get_children():
